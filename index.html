@@ -411,20 +411,7 @@
         <label for="postcodeInput">Postcode</label>
         <input type="text" id="postcodeInput" placeholder="e.g. 3000" maxlength="4" inputmode="numeric" autocomplete="postal-code" />
       </div>
-      <div class="search-field sf-state">
-        <label for="stateFilter">State</label>
-        <select id="stateFilter">
-          <option value="">All states</option>
-          <option value="VIC">VIC</option>
-          <option value="NSW">NSW</option>
-          <option value="QLD">QLD</option>
-          <option value="SA">SA</option>
-          <option value="WA">WA</option>
-          <option value="TAS">TAS</option>
-          <option value="ACT">ACT</option>
-          <option value="NT">NT</option>
-        </select>
-      </div>
+      
       <div class="search-field sf-radius">
         <label for="radiusSelect">Radius</label>
         <select id="radiusSelect">
@@ -532,7 +519,7 @@
         const dist  = d.distance != null ? `${Math.round(d.distance)} km` : '';
         const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(addr || name)}`;
 
-        let badge = dist ? `<span class="dist-badge">...${dist}</span>` : '';
+       let badge = dist ? `<span class="dist-badge"><svg viewBox="0 0 24 24" style="width:10px;height:10px;fill:none;stroke:var(--blue);stroke-width:2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>${dist} from ${esc(postcode)}</span>` : '';
 
         let contacts = '';
         if (phone) contacts += `<div class="contact-item"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.16 6.16l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>${esc(phone)}</div>`;
